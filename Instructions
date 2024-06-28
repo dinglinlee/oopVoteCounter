@@ -1,0 +1,46 @@
+Classes to create:
+Voter with the attributes
+-int id
+-int arrivalTime
+-String party
+-Supplier<Integer> registrationTime // voters will take between 1 to 3 minutes to register
+-Supplier<Integer> votingTime // voters will take between 1 to 5 minutes to vote
+
+Queue with the attribute
+-ImList<Voter> queue
+
+Counter with the attribute
+-int id
+-int endTime
+-Supplier<Integer> restTimes // registration chance may rest for 1 or 2 minutes after registering a voter, or not rest at all
+-boolean isServing
+
+VotingBooth with the attribute
+-int id
+-int endTime
+
+Event interface with the following methods:
+-String toString()
+-boolean isTerminal()
+-double getTime()
+-Customer getCustomer()
+-Quad<Event, Queue ImList<Counter>, ImList<VotingBooth>>
+
+ImList (immutable list of objects of any type)
+
+Arrive extends Event
+Wait extends Event
+Register extends Event
+Vote extends Event (vote is a terminal event)
+
+Quad<A, B, C, D> eith the methods
+A first()
+B second()
+C third()
+D fourth()
+
+PQ (imports Comparator and PriorityQueue)
+
+EventComparator implements Comparator<Event>, imports Comparator, ranks Events by time then id of Voter
+
+Simulator class (to handle everything)
